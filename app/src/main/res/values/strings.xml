@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Snooker Score</string>
+    <string name="enter_setup">Enter Setup</string>
+    <string name="continue_button">Continue</string>
+    <string name="player_one_name">Player one\'s name:</string>
+    <string name="player_two_name">Player two\'s name:</string>
+    <string name="red_ball_description">Red ball</string>
+    <string name="green_ball_description">Green ball</string>
+    <string name="brown_ball_description">Brown ball</string>
+    <string name="pink_ball_description">Pink ball</string>
+    <string name="black_ball_description">Black ball</string>
+    <string name="blue_ball_description">Blue ball</string>
+    <string name="yellow_ball_description">Yellow ball</string>
+    <string name="arrow_description">Current player indicator</string>
+</resources>

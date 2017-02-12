@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_scoring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="me.chrislane.snookerscore.Scoring">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="18dp"
+            android:layout_toStartOf="@+id/player_two_name"
+            android:id="@+id/player_one_name"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:id="@+id/player_one_score"
+            android:layout_below="@+id/player_one_name"
+            android:layout_alignStart="@+id/player_one_name"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:id="@+id/player_two_name"
+            android:layout_alignBaseline="@+id/player_one_name"
+            android:layout_alignBottom="@+id/player_one_name"
+            android:layout_alignParentEnd="true"/>
+
+    <ImageButton
+            android:contentDescription="@string/green_ball_description"
+            android:onClick="onClickBall"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/green_ball"
+            android:id="@+id/green_ball"
+            android:layout_alignTop="@+id/yellow_ball"
+            android:layout_alignStart="@+id/red_ball"/>
+
+    <ImageButton
+            android:contentDescription="@string/brown_ball_description"
+            android:onClick="onClickBall"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/brown_ball"
+            android:id="@+id/brown_ball"
+            android:layout_alignTop="@+id/green_ball"
+            android:layout_alignParentEnd="true"/>
+
+    <ImageButton
+            android:contentDescription="@string/pink_ball_description"
+            android:onClick="onClickBall"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/pink_ball"
+            android:id="@+id/pink_ball"
+            android:layout_alignTop="@+id/blue_ball"
+            android:layout_alignStart="@+id/green_ball"/>
+
+    <ImageButton
+            android:contentDescription="@string/black_ball_description"
+            android:onClick="onClickBall"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/black_ball"
+            android:id="@+id/black_ball"
+            android:layout_alignTop="@+id/pink_ball"
+            android:layout_alignParentEnd="true"/>
+
+    <ImageButton
+            android:contentDescription="@string/blue_ball_description"
+            android:onClick="onClickBall"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/blue_ball"
+            android:id="@+id/blue_ball"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"/>
+
+    <ImageButton
+            android:contentDescription="@string/yellow_ball_description"
+            android:onClick="onClickBall"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/yellow_ball"
+            android:id="@+id/yellow_ball"
+            android:layout_above="@+id/blue_ball"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="73dp"/>
+
+    <ImageButton
+            android:onClick="onClickBall"
+            android:contentDescription="@string/red_ball_description"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/red_ball"
+            android:id="@+id/red_ball"
+            android:background="@android:color/transparent"
+            android:layout_above="@+id/green_ball"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="46dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_two_score"
+            android:layout_alignBaseline="@+id/player_one_score"
+            android:layout_alignBottom="@+id/player_one_score"
+            android:layout_alignStart="@+id/player_two_name"/>
+
+    <ImageButton
+            android:contentDescription="@string/arrow_description"
+            android:rotation="-90"
+            android:onClick="onClickArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/arrow_up"
+            android:background="@android:color/transparent"
+            android:layout_alignTop="@+id/player_one_name"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/arrow"/>
+
+</RelativeLayout>
