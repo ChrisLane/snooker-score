@@ -41,6 +41,7 @@
 
     <ImageButton
             android:contentDescription="@string/green_ball_description"
+            android:visibility="invisible"
             android:onClick="onClickBall"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -52,6 +53,7 @@
 
     <ImageButton
             android:contentDescription="@string/brown_ball_description"
+            android:visibility="invisible"
             android:onClick="onClickBall"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -63,6 +65,7 @@
 
     <ImageButton
             android:contentDescription="@string/pink_ball_description"
+            android:visibility="invisible"
             android:onClick="onClickBall"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -74,6 +77,7 @@
 
     <ImageButton
             android:contentDescription="@string/black_ball_description"
+            android:visibility="invisible"
             android:onClick="onClickBall"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -85,6 +89,7 @@
 
     <ImageButton
             android:contentDescription="@string/blue_ball_description"
+            android:visibility="invisible"
             android:onClick="onClickBall"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -96,6 +101,7 @@
 
     <ImageButton
             android:contentDescription="@string/yellow_ball_description"
+            android:visibility="invisible"
             android:onClick="onClickBall"
             android:layout_width="100dp"
             android:layout_height="100dp"
