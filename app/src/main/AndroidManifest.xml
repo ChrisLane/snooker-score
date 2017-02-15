@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".Scoring">
         </activity>
+        <activity android:name=".Results">
+        </activity>
     </application>
 
 </manifest>

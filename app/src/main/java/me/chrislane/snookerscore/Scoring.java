@@ -18,6 +18,8 @@ public class Scoring extends AppCompatActivity {
     private Player currentPlayer = Player.PLAYER_ONE;
     private BallColour currentBall = BallColour.RED;
     private boolean colourAfterRed = false;
+    private String playerOneName;
+    private String playerTwoName;
 
     private enum BallColour {
         RED, YELLOW, GREEN, BROWN, BLUE, PINK, BLACK
@@ -196,7 +198,7 @@ public class Scoring extends AppCompatActivity {
                     addScore(currentPlayer, 7);
 
                     if (pottedReds >= 15 && !colourAfterRed) {
-                        // Game won
+                        openResults();
                     } else if (colourAfterRed){
                         currentBall = BallColour.YELLOW;
                     } else {
@@ -208,6 +210,7 @@ public class Scoring extends AppCompatActivity {
 
             if (currentBall == BallColour.YELLOW) {
                 colourAfterRed = false;
+                disableBallButtons(false);
             }
 
             enableBallButton(currentBall);
@@ -229,6 +232,22 @@ public class Scoring extends AppCompatActivity {
             arrow.setRotation(-90);
             currentPlayer = Player.PLAYER_ONE;
         }
+
+        if (currentBall == BallColour.RED) {
+            disableBallButtons(true);
+            enableBallButton(BallColour.RED);
+        }
+    }
+
+    private void openResults() {
+        Intent intent = new Intent(this, Results.class);
+
+        intent.putExtra("playerOneName", playerOneName);
+        intent.putExtra("playerTwoName", playerTwoName);
+        intent.putExtra("playerOneScore", playerOneScore);
+        intent.putExtra("playerTwoScore", playerTwoScore);
+
+        startActivity(intent);
     }
 
     @Override
@@ -237,11 +256,14 @@ public class Scoring extends AppCompatActivity {
         setContentView(R.layout.activity_scoring);
 
         Intent pastIntent = getIntent();
-        TextView playerOneName = (TextView) findViewById(R.id.player_one_name);
-        TextView playerTwoName = (TextView) findViewById(R.id.player_two_name);
+        playerOneName = pastIntent.getStringExtra("playerOneName");
+        playerTwoName = pastIntent.getStringExtra("playerTwoName");
 
-        playerOneName.setText(pastIntent.getStringExtra("playerOneName"));
-        playerTwoName.setText(pastIntent.getStringExtra("playerTwoName"));
+        TextView playerOneNameView = (TextView) findViewById(R.id.player_one_name);
+        TextView playerTwoNameView = (TextView) findViewById(R.id.player_two_name);
+
+        playerOneNameView.setText(playerOneName);
+        playerTwoNameView.setText(playerTwoName);
 
         playerOneScoreView = (TextView) findViewById(R.id.player_one_score);
         playerTwoScoreView = (TextView) findViewById(R.id.player_two_score);
