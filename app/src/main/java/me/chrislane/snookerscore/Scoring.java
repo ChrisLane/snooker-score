@@ -21,6 +21,23 @@ public class Scoring extends AppCompatActivity {
     private String playerOneName;
     private String playerTwoName;
 
+    public void onClickFoul(View view) {
+        switch (currentPlayer) {
+            case PLAYER_ONE:
+                playerOneScore -= 4;
+                playerOneScoreView.setText(String.format(Locale.ENGLISH, "%d", playerOneScore));
+                break;
+            case PLAYER_TWO:
+                playerTwoScore -= 4;
+                playerTwoScoreView.setText(String.format(Locale.ENGLISH, "%d", playerTwoScore));
+                break;
+        }
+    }
+
+    public void onClickEndFrame(View view) {
+        openResults();
+    }
+
     private enum BallColour {
         RED, YELLOW, GREEN, BROWN, BLUE, PINK, BLACK
     }
@@ -250,11 +267,15 @@ public class Scoring extends AppCompatActivity {
 
     private void openResults() {
         Intent intent = new Intent(this, Results.class);
+        Intent pastIntent = getIntent();
 
         intent.putExtra("playerOneName", playerOneName);
         intent.putExtra("playerTwoName", playerTwoName);
         intent.putExtra("playerOneScore", playerOneScore);
         intent.putExtra("playerTwoScore", playerTwoScore);
+        intent.putExtra("playerOneWins", pastIntent.getIntExtra("playerOneWins", 0));
+        intent.putExtra("playerTwoWins", pastIntent.getIntExtra("playerTwoWins", 0));
+        intent.putExtra("framesComplete", pastIntent.getIntExtra("framesComplete", 0));
 
         startActivity(intent);
     }

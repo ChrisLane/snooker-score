@@ -11,8 +11,13 @@ import java.util.Locale;
 public class Results extends AppCompatActivity {
     private String winner;
     private String loser;
+    private String playerOneName;
+    private String playerTwoName;
     private int winningScore;
     private int losingScore;
+    private int playerOneWins;
+    private int playerTwoWins;
+    private int framesComplete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +25,12 @@ public class Results extends AppCompatActivity {
         setContentView(R.layout.activity_results);
 
         Intent pastIntent = getIntent();
-        String playerOneName = pastIntent.getStringExtra("playerOneName");
-        String playerTwoName = pastIntent.getStringExtra("playerTwoName");
+        playerOneName = pastIntent.getStringExtra("playerOneName");
+        playerTwoName = pastIntent.getStringExtra("playerTwoName");
+        playerOneWins = pastIntent.getIntExtra("playerOneWins", 0);
+        playerTwoWins = pastIntent.getIntExtra("playerTwoWins", 0);
+        framesComplete = pastIntent.getIntExtra("framesComplete", 0);
+        framesComplete += 1;
 
         TextView playerOneNameView = (TextView) findViewById(R.id.player_one);
         TextView playerTwoNameView = (TextView) findViewById(R.id.player_two);
@@ -45,14 +54,26 @@ public class Results extends AppCompatActivity {
             winningScore = playerOneScore;
             loser = playerTwoName;
             losingScore = playerTwoScore;
-        } else {
+            playerOneWins += 1;
+        } else if (playerTwoScore > playerOneScore) {
             winner = playerTwoName;
             winningScore = playerOneScore;
             loser = playerOneName;
             losingScore = playerTwoScore;
+            playerTwoWins += 1;
+        } else {
+            winningPlayerView.setText(R.string.draw);
+            TextView won = (TextView) findViewById(R.id.won);
+            won.setText(R.string.no_winners);
+            return;
         }
 
         winningPlayerView.setText(winner);
+
+        TextView playerOneWinsView = (TextView) findViewById(R.id.player_one_wins);
+        TextView playerTwoWinsView = (TextView) findViewById(R.id.player_two_wins);
+        playerOneWinsView.setText(String.format(Locale.ENGLISH, "%d", playerOneWins));
+        playerTwoWinsView.setText(String.format(Locale.ENGLISH, "%d", playerTwoWins));
     }
 
     public void onClickShare(View view) {
@@ -62,5 +83,15 @@ public class Results extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_SUBJECT, "Snooker Frame");
         intent.putExtra(Intent.EXTRA_TEXT, String.format(Locale.ENGLISH, shareText, winner, winningScore, losingScore, loser));
         startActivity(Intent.createChooser(intent, "Share via"));
+    }
+
+    public void onClickNextFrame(View view) {
+        Intent intent = new Intent(this, Scoring.class);
+        intent.putExtra("playerOneName", playerOneName);
+        intent.putExtra("playerTwoName", playerTwoName);
+        intent.putExtra("playerOneWins", playerOneWins);
+        intent.putExtra("playerTwoWins", playerTwoWins);
+        intent.putExtra("framesComplete", framesComplete);
+        startActivity(intent);
     }
 }

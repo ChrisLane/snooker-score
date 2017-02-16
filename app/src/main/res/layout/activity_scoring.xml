@@ -16,10 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="31dp"
+            android:layout_alignStart="@+id/foul"
             android:layout_marginTop="18dp"
-            android:layout_toStartOf="@+id/player_two_name"
+            android:layout_toStartOf="@+id/arrow"
             android:id="@+id/player_one_name"
             android:textSize="24sp"
             android:onClick="changePlayer"
@@ -34,18 +33,6 @@
             android:layout_alignStart="@+id/player_one_name"
             android:textSize="36sp"
             android:textStyle="normal|bold"
-            android:onClick="changePlayer"
-            android:textColor="?android:attr/textColorPrimary"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="50dp"
-            android:id="@+id/player_two_name"
-            android:layout_alignBaseline="@+id/player_one_name"
-            android:layout_alignBottom="@+id/player_one_name"
-            android:layout_alignParentEnd="true"
-            android:textSize="24sp"
             android:onClick="changePlayer"
             android:textColor="?android:attr/textColorPrimary"/>
 
@@ -103,11 +90,12 @@
             android:id="@+id/player_two_score"
             android:layout_alignBaseline="@+id/player_one_score"
             android:layout_alignBottom="@+id/player_one_score"
-            android:layout_alignStart="@+id/player_two_name"
+            android:layout_alignEnd="@+id/player_two_name"
             android:textSize="36sp"
             android:textStyle="normal|bold"
             android:onClick="changePlayer"
-            android:textColor="?android:attr/textColorPrimary"/>
+            android:textColor="?android:attr/textColorPrimary"
+            android:textAlignment="textEnd"/>
 
     <ImageButton
             android:contentDescription="@string/arrow_description"
@@ -157,5 +145,38 @@
             android:layout_marginBottom="18dp"
             android:layout_above="@+id/green_ball"
             android:layout_centerHorizontal="true"/>
+
+    <Button
+            android:text="Foul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickFoul"
+            android:background="@drawable/rounded_button"
+            android:padding="10dp"
+            android:id="@+id/foul"
+            android:layout_below="@+id/player_one_score"
+            android:layout_alignParentStart="true"/>
+
+    <Button
+            android:text="End Frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/foul"
+            android:layout_alignParentEnd="true"
+            android:padding="10dp"
+            android:background="@drawable/rounded_button"
+            android:onClick="onClickEndFrame"
+            android:id="@+id/end_frame"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_two_name"
+            android:textSize="24sp"
+            android:onClick="changePlayer"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textAlignment="textEnd"
+            android:layout_alignTop="@+id/arrow"
+            android:layout_alignEnd="@+id/end_frame"/>
 
 </RelativeLayout>

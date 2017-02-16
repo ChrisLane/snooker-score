@@ -23,16 +23,16 @@
             android:textAlignment="center"/>
 
     <TextView
-            android:text="won the frame!"
+            android:text="Score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:id="@+id/won"
-            android:textSize="24sp"
+            android:id="@+id/scores"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
             android:textColor="?android:attr/textColorPrimary"
-            android:layout_below="@+id/winning_player"
+            android:layout_below="@+id/won"
             android:layout_centerHorizontal="true"
-            android:textAlignment="center"/>
+            android:layout_marginTop="21dp"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:textStyle="normal|bold"
             android:textColor="?android:attr/textColorPrimary"
             android:textAlignment="center"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/player_one"
             android:layout_alignStart="@+id/player_one"/>
 
     <TextView
@@ -53,45 +53,19 @@
             android:textStyle="normal|bold"
             android:textColor="?android:attr/textColorPrimary"
             android:textAlignment="center"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/player_two"
             android:layout_alignStart="@+id/player_two"/>
 
-    <Button
-            android:text="Share this result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/player_two_score"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="19dp"
-            android:padding="10dp"
-            android:background="@drawable/rounded_button"
-            android:onClick="onClickShare"
-            android:id="@+id/share"/>
-
     <TextView
-            android:text="Player 1"
+            android:text="won the frame!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/player_one"
-            android:textSize="18sp"
-            android:textStyle="normal|bold"
+            android:id="@+id/won"
+            android:textSize="24sp"
             android:textColor="?android:attr/textColorPrimary"
-            android:textAlignment="textEnd"
-            android:layout_marginEnd="37dp"
-            android:layout_above="@+id/player_one_score"
-            android:layout_toStartOf="@+id/scores"/>
-
-    <TextView
-            android:text="Score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/scores"
-            android:fontFamily="sans-serif"
-            android:textSize="18sp"
-            android:textColor="?android:attr/textColorPrimary"
-            android:layout_above="@+id/player_one"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="12dp"/>
+            android:textAlignment="center"
+            android:layout_below="@+id/winning_player"
+            android:layout_centerHorizontal="true"/>
 
     <TextView
             android:text="Player 2"
@@ -102,7 +76,89 @@
             android:textStyle="normal|bold"
             android:textColor="?android:attr/textColorPrimary"
             android:textAlignment="textStart"
-            android:layout_marginStart="39dp"
-            android:layout_above="@+id/player_two_score"
+            android:layout_marginStart="11dp"
+            android:layout_alignBaseline="@+id/player_one"
+            android:layout_alignBottom="@+id/player_one"
             android:layout_toEndOf="@+id/scores"/>
+
+    <Button
+            android:text="Share this result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/rounded_button"
+            android:onClick="onClickShare"
+            android:id="@+id/share"
+            android:layout_alignBaseline="@+id/next_frame"
+            android:layout_alignBottom="@+id/next_frame"
+            android:layout_alignStart="@+id/scores"
+            android:layout_marginStart="11dp"/>
+
+    <TextView
+            android:text="Player 1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_one"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textAlignment="textEnd"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/scores"
+            android:layout_alignEnd="@+id/next_frame"/>
+
+    <Button
+            android:text="Next Frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_frame"
+            android:padding="10dp"
+            android:background="@drawable/rounded_button"
+            android:onClick="onClickNextFrame"
+            android:layout_marginTop="126dp"
+            android:layout_below="@+id/player_one_score"
+            android:layout_toStartOf="@+id/share"/>
+
+    <TextView
+            android:text="Frame Score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/frame_score"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/player_one"
+            android:layout_alignParentStart="true"/>
+
+    <TextView
+            android:text="Frames Won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_one_score"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="17dp"
+            android:id="@+id/frames_won"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_one_wins"
+            android:layout_alignBaseline="@+id/frames_won"
+            android:layout_alignBottom="@+id/frames_won"
+            android:layout_alignStart="@+id/player_one"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textAlignment="center"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_two_wins"
+            android:layout_alignBaseline="@+id/player_one_wins"
+            android:layout_alignBottom="@+id/player_one_wins"
+            android:layout_alignStart="@+id/player_two"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"/>
+
 </RelativeLayout>

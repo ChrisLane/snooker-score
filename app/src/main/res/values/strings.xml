@@ -12,4 +12,6 @@
     <string name="blue_ball_description">Blue ball</string>
     <string name="yellow_ball_description">Yellow ball</string>
     <string name="arrow_description">Current player indicator</string>
+    <string name="draw">A draw!</string>
+    <string name="no_winners">No winners this time</string>
 </resources>
