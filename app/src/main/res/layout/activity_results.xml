@@ -17,7 +17,10 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="61dp"
-            android:id="@+id/winning_player"/>
+            android:id="@+id/winning_player"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
             android:text="won!"
@@ -26,7 +29,9 @@
             android:layout_below="@+id/winning_player"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="34dp"
-            android:id="@+id/won"/>
+            android:id="@+id/won"
+            android:textSize="24sp"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
             android:text="Scores"
@@ -35,38 +40,58 @@
             android:layout_below="@+id/won"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="55dp"
-            android:id="@+id/scores"/>
+            android:id="@+id/scores"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_one_score"
+            android:layout_marginTop="26dp"
+            android:layout_marginStart="24dp"
+            android:layout_below="@+id/player_one"
+            android:layout_alignStart="@+id/player_one"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
             android:text="Player 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/player_one"
+            android:layout_marginStart="28dp"
             android:layout_below="@+id/scores"
-            android:layout_toStartOf="@+id/scores"
-            android:layout_marginEnd="39dp"
-            android:layout_marginTop="28dp"
-            android:id="@+id/player_one"/>
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="66dp"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
             android:text="Player 2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/player_two"
+            android:layout_alignBaseline="@+id/player_one"
             android:layout_alignBottom="@+id/player_one"
             android:layout_toEndOf="@+id/scores"
-            android:layout_marginStart="40dp"
-            android:id="@+id/player_two"/>
+            android:layout_marginStart="48dp"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignEnd="@+id/player_one"
-            android:id="@+id/player_one_score"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignEnd="@+id/player_two"
-            android:id="@+id/player_two_score"/>
+            android:id="@+id/player_two_score"
+            android:layout_alignBaseline="@+id/player_one_score"
+            android:layout_alignBottom="@+id/player_one_score"
+            android:layout_alignStart="@+id/player_two"
+            android:layout_marginStart="23dp"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:textColor="?android:attr/textColorPrimary"/>
 </RelativeLayout>

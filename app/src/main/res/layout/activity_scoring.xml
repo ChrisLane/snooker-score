@@ -20,7 +20,10 @@
             android:layout_marginStart="31dp"
             android:layout_marginTop="18dp"
             android:layout_toStartOf="@+id/player_two_name"
-            android:id="@+id/player_one_name"/>
+            android:id="@+id/player_one_name"
+            android:textSize="24sp"
+            android:onClick="changePlayer"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -28,7 +31,11 @@
             android:layout_marginTop="13dp"
             android:id="@+id/player_one_score"
             android:layout_below="@+id/player_one_name"
-            android:layout_alignStart="@+id/player_one_name"/>
+            android:layout_alignStart="@+id/player_one_name"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:onClick="changePlayer"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -37,14 +44,17 @@
             android:id="@+id/player_two_name"
             android:layout_alignBaseline="@+id/player_one_name"
             android:layout_alignBottom="@+id/player_one_name"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:textSize="24sp"
+            android:onClick="changePlayer"
+            android:textColor="?android:attr/textColorPrimary"/>
 
     <ImageButton
             android:contentDescription="@string/green_ball_description"
             android:visibility="invisible"
             android:onClick="onClickBall"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/green_ball"
             android:id="@+id/green_ball"
@@ -55,8 +65,8 @@
             android:contentDescription="@string/brown_ball_description"
             android:visibility="invisible"
             android:onClick="onClickBall"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/brown_ball"
             android:id="@+id/brown_ball"
@@ -67,8 +77,8 @@
             android:contentDescription="@string/pink_ball_description"
             android:visibility="invisible"
             android:onClick="onClickBall"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/pink_ball"
             android:id="@+id/pink_ball"
@@ -79,20 +89,44 @@
             android:contentDescription="@string/black_ball_description"
             android:visibility="invisible"
             android:onClick="onClickBall"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/black_ball"
             android:id="@+id/black_ball"
             android:layout_alignTop="@+id/pink_ball"
             android:layout_alignParentEnd="true"/>
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player_two_score"
+            android:layout_alignBaseline="@+id/player_one_score"
+            android:layout_alignBottom="@+id/player_one_score"
+            android:layout_alignStart="@+id/player_two_name"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:onClick="changePlayer"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+    <ImageButton
+            android:contentDescription="@string/arrow_description"
+            android:rotation="-90"
+            android:onClick="changePlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/arrow_up"
+            android:background="@android:color/transparent"
+            android:layout_alignTop="@+id/player_one_name"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/arrow"/>
+
     <ImageButton
             android:contentDescription="@string/blue_ball_description"
             android:visibility="invisible"
             android:onClick="onClickBall"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/blue_ball"
             android:id="@+id/blue_ball"
@@ -103,45 +137,25 @@
             android:contentDescription="@string/yellow_ball_description"
             android:visibility="invisible"
             android:onClick="onClickBall"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/yellow_ball"
             android:id="@+id/yellow_ball"
+            android:layout_marginBottom="18dp"
             android:layout_above="@+id/blue_ball"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="73dp"/>
+            android:layout_alignParentStart="true"/>
 
     <ImageButton
             android:onClick="onClickBall"
             android:contentDescription="@string/red_ball_description"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/red_ball"
             android:id="@+id/red_ball"
             android:background="@android:color/transparent"
+            android:layout_marginBottom="18dp"
             android:layout_above="@+id/green_ball"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="46dp"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/player_two_score"
-            android:layout_alignBaseline="@+id/player_one_score"
-            android:layout_alignBottom="@+id/player_one_score"
-            android:layout_alignStart="@+id/player_two_name"/>
-
-    <ImageButton
-            android:contentDescription="@string/arrow_description"
-            android:rotation="-90"
-            android:onClick="onClickArrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arrow_up"
-            android:background="@android:color/transparent"
-            android:layout_alignTop="@+id/player_one_name"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/arrow"/>
+            android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
