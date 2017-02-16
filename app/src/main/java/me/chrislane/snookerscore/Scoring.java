@@ -222,13 +222,22 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
-    public void onClickArrow(View view) {
+    public void changePlayer(View view) {
         ImageButton arrow = (ImageButton) findViewById(R.id.arrow);
 
-        if (currentPlayer == Player.PLAYER_ONE) {
+        if (view == findViewById(R.id.player_one_name) || view == findViewById(R.id.player_one_score)) {
+            arrow.setRotation(-90);
+            currentPlayer = Player.PLAYER_ONE;
+        } else if (view == findViewById(R.id.player_two_name) || view == findViewById(R.id.player_two_score)) {
             arrow.setRotation(90);
             currentPlayer = Player.PLAYER_TWO;
-        } else {
+        }
+
+
+        if (currentPlayer == Player.PLAYER_ONE && view == arrow) {
+            arrow.setRotation(90);
+            currentPlayer = Player.PLAYER_TWO;
+        } else if (view == arrow) {
             arrow.setRotation(-90);
             currentPlayer = Player.PLAYER_ONE;
         }
