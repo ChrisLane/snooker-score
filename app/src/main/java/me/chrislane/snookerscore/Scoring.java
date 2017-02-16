@@ -39,7 +39,16 @@ public class Scoring extends AppCompatActivity {
     }
 
     private enum BallColour {
-        RED, YELLOW, GREEN, BROWN, BLUE, PINK, BLACK
+        RED(0), YELLOW(1), GREEN(2), BROWN(3), BLUE(4), PINK(5), BLACK(6);
+
+        private final int value;
+        BallColour(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
     }
 
     private ImageButton getBallButton(BallColour colour) {
@@ -64,6 +73,8 @@ public class Scoring extends AppCompatActivity {
     private void disableBallButtons(Boolean exceptRed) {
         if (!exceptRed) {
             getBallButton(BallColour.RED).setVisibility(View.INVISIBLE);
+            TextView remaining = (TextView) findViewById(R.id.remaining_red_balls);
+            remaining.setVisibility(View.INVISIBLE);
         }
         getBallButton(BallColour.YELLOW).setVisibility(View.INVISIBLE);
         getBallButton(BallColour.GREEN).setVisibility(View.INVISIBLE);
@@ -76,6 +87,8 @@ public class Scoring extends AppCompatActivity {
     private void enableBallButtons(Boolean exceptRed) {
         if (!exceptRed) {
             getBallButton(BallColour.RED).setVisibility(View.VISIBLE);
+            TextView remaining = (TextView) findViewById(R.id.remaining_red_balls);
+            remaining.setVisibility(View.VISIBLE);
         }
         getBallButton(BallColour.YELLOW).setVisibility(View.VISIBLE);
         getBallButton(BallColour.GREEN).setVisibility(View.VISIBLE);
@@ -89,6 +102,8 @@ public class Scoring extends AppCompatActivity {
         switch (colour) {
             case RED:
                 getBallButton(BallColour.RED).setVisibility(View.VISIBLE);
+                TextView remaining = (TextView) findViewById(R.id.remaining_red_balls);
+                remaining.setVisibility(View.VISIBLE);
                 break;
             case YELLOW:
                 getBallButton(BallColour.YELLOW).setVisibility(View.VISIBLE);
@@ -115,6 +130,8 @@ public class Scoring extends AppCompatActivity {
         switch (colour) {
             case RED:
                 getBallButton(BallColour.RED).setVisibility(View.INVISIBLE);
+                TextView remaining = (TextView) findViewById(R.id.remaining_red_balls);
+                remaining.setVisibility(View.INVISIBLE);
                 break;
             case YELLOW:
                 getBallButton(BallColour.YELLOW).setVisibility(View.INVISIBLE);
@@ -138,11 +155,13 @@ public class Scoring extends AppCompatActivity {
     }
 
     public void onClickBall(View view) {
-        if (view.getId() == R.id.red_ball) {
+        if (view.getId() == R.id.red_ball || view.getId() == R.id.remaining_red_balls) {
             addScore(currentPlayer, 1);
             pottedReds++;
             disableBallButton(BallColour.RED);
             enableBallButtons(true);
+            TextView remaining = (TextView) findViewById(R.id.remaining_red_balls);
+            remaining.setText(String.format(Locale.ENGLISH, "x%d", 15 - pottedReds));
 
             if (pottedReds >= 15) {
                 colourAfterRed = true;
@@ -285,6 +304,46 @@ public class Scoring extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoring);
 
+        if (savedInstanceState != null) {
+            playerOneScore = savedInstanceState.getInt("playerOneScore", 0);
+            playerTwoScore = savedInstanceState.getInt("playerTwoScore", 0);
+            pottedReds = savedInstanceState.getInt("pottedReds", 0);
+            colourAfterRed = savedInstanceState.getBoolean("colourAfterRed", false);
+
+            switch (savedInstanceState.getInt("currentPlayer", 0)) {
+                case 0:
+                    currentPlayer = Player.PLAYER_ONE;
+                    break;
+                case 1:
+                    currentPlayer = Player.PLAYER_TWO;
+                    break;
+            }
+
+            switch (savedInstanceState.getInt("currentBall", 0)) {
+                case 0:
+                    currentBall = BallColour.RED;
+                    break;
+                case 1:
+                    currentBall = BallColour.YELLOW;
+                    break;
+                case 2:
+                    currentBall = BallColour.GREEN;
+                    break;
+                case 3:
+                    currentBall = BallColour.BROWN;
+                    break;
+                case 4:
+                    currentBall = BallColour.BLUE;
+                    break;
+                case 5:
+                    currentBall = BallColour.PINK;
+                    break;
+                case 6:
+                    currentBall = BallColour.BLACK;
+                    break;
+            }
+        }
+
         Intent pastIntent = getIntent();
         playerOneName = pastIntent.getStringExtra("playerOneName");
         playerTwoName = pastIntent.getStringExtra("playerTwoName");
@@ -297,6 +356,9 @@ public class Scoring extends AppCompatActivity {
 
         playerOneScoreView = (TextView) findViewById(R.id.player_one_score);
         playerTwoScoreView = (TextView) findViewById(R.id.player_two_score);
+
+        TextView remaining = (TextView) findViewById(R.id.remaining_red_balls);
+        remaining.setText(String.format(Locale.ENGLISH, "x%d", 15 - pottedReds));
 
         addScore(Player.PLAYER_ONE, 0);
         addScore(Player.PLAYER_TWO, 0);
@@ -315,6 +377,26 @@ public class Scoring extends AppCompatActivity {
     }
 
     private enum Player {
-        PLAYER_ONE, PLAYER_TWO
+        PLAYER_ONE(0), PLAYER_TWO(1);
+
+        private final int value;
+        Player(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("playerOneScore", playerOneScore);
+        outState.putInt("playerTwoScore", playerTwoScore);
+        outState.putInt("pottedReds", pottedReds);
+        outState.putInt("currentPlayer", currentPlayer.getValue());
+        outState.putInt("currentBall", currentBall.getValue());
+        outState.putBoolean("colourAfterRed", colourAfterRed);
     }
 }

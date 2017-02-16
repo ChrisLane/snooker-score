@@ -61,14 +61,15 @@ public class Results extends AppCompatActivity {
             loser = playerOneName;
             losingScore = playerTwoScore;
             playerTwoWins += 1;
-        } else {
-            winningPlayerView.setText(R.string.draw);
-            TextView won = (TextView) findViewById(R.id.won);
-            won.setText(R.string.no_winners);
-            return;
         }
 
         winningPlayerView.setText(winner);
+
+        if (playerOneScore == playerTwoScore) {
+            winningPlayerView.setText(R.string.draw);
+            TextView won = (TextView) findViewById(R.id.won);
+            won.setText(R.string.no_winners);
+        }
 
         TextView playerOneWinsView = (TextView) findViewById(R.id.player_one_wins);
         TextView playerTwoWinsView = (TextView) findViewById(R.id.player_two_wins);
