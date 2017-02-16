@@ -22,12 +22,20 @@ public class Scoring extends AppCompatActivity {
     private String playerTwoName;
 
     public void onClickFoul(View view) {
+        ImageButton arrow = (ImageButton) findViewById(R.id.arrow);
+
         switch (currentPlayer) {
             case PLAYER_ONE:
+                arrow.setRotation(90);
+                currentPlayer = Player.PLAYER_TWO;
+
                 playerTwoScore += 4;
                 playerTwoScoreView.setText(String.format(Locale.ENGLISH, "%d", playerTwoScore));
                 break;
             case PLAYER_TWO:
+                arrow.setRotation(-90);
+                currentPlayer = Player.PLAYER_ONE;
+
                 playerOneScore += 4;
                 playerOneScoreView.setText(String.format(Locale.ENGLISH, "%d", playerOneScore));
                 break;
