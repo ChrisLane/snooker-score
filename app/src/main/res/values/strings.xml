@@ -14,4 +14,15 @@
     <string name="arrow_description">Current player indicator</string>
     <string name="draw">A draw!</string>
     <string name="no_winners">No winners this time</string>
+    <string name="title_description">Snooker Score</string>
+    <string name="score">Score</string>
+    <string name="win_message">won the frame!</string>
+    <string name="player_2">Player 2</string>
+    <string name="share_this_result">Share this result</string>
+    <string name="player_1">Player 1</string>
+    <string name="next_frame">Next Frame</string>
+    <string name="frame_score">Frame Score</string>
+    <string name="frames_won">Frames Won</string>
+    <string name="end_frame">End Frame</string>
+    <string name="foul">Foul</string>
 </resources>

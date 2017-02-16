@@ -23,7 +23,7 @@
             android:textAlignment="center"/>
 
     <TextView
-            android:text="Score"
+            android:text="@string/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/scores"
@@ -57,7 +57,7 @@
             android:layout_alignStart="@+id/player_two"/>
 
     <TextView
-            android:text="won the frame!"
+            android:text="@string/win_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/won"
@@ -68,7 +68,7 @@
             android:layout_centerHorizontal="true"/>
 
     <TextView
-            android:text="Player 2"
+            android:text="@string/player_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/player_two"
@@ -82,7 +82,7 @@
             android:layout_toEndOf="@+id/scores"/>
 
     <Button
-            android:text="Share this result"
+            android:text="@string/share_this_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -95,7 +95,7 @@
             android:layout_marginStart="11dp"/>
 
     <TextView
-            android:text="Player 1"
+            android:text="@string/player_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/player_one"
@@ -108,7 +108,7 @@
             android:layout_alignEnd="@+id/next_frame"/>
 
     <Button
-            android:text="Next Frame"
+            android:text="@string/next_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/next_frame"
@@ -120,7 +120,7 @@
             android:layout_toStartOf="@+id/share"/>
 
     <TextView
-            android:text="Frame Score"
+            android:text="@string/frame_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/frame_score"
@@ -129,7 +129,7 @@
             android:layout_alignParentStart="true"/>
 
     <TextView
-            android:text="Frames Won"
+            android:text="@string/frames_won"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_one_score"

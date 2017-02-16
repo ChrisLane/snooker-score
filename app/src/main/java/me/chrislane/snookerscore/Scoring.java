@@ -38,19 +38,6 @@ public class Scoring extends AppCompatActivity {
         openResults();
     }
 
-    private enum BallColour {
-        RED(0), YELLOW(1), GREEN(2), BROWN(3), BLUE(4), PINK(5), BLACK(6);
-
-        private final int value;
-        BallColour(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
-    }
-
     private ImageButton getBallButton(BallColour colour) {
         switch (colour) {
             case RED:
@@ -176,7 +163,7 @@ public class Scoring extends AppCompatActivity {
                     if (pottedReds >= 15 && !colourAfterRed) {
                         currentBall = BallColour.GREEN;
                         disableBallButton(BallColour.YELLOW);
-                    } else if (colourAfterRed){
+                    } else if (colourAfterRed) {
                         currentBall = BallColour.YELLOW;
                     } else {
                         currentBall = BallColour.RED;
@@ -188,7 +175,7 @@ public class Scoring extends AppCompatActivity {
                     if (pottedReds >= 15 && !colourAfterRed) {
                         currentBall = BallColour.BROWN;
                         disableBallButton(BallColour.GREEN);
-                    } else if (colourAfterRed){
+                    } else if (colourAfterRed) {
                         currentBall = BallColour.YELLOW;
                     } else {
                         currentBall = BallColour.RED;
@@ -200,7 +187,7 @@ public class Scoring extends AppCompatActivity {
                     if (pottedReds >= 15 && !colourAfterRed) {
                         currentBall = BallColour.BLUE;
                         disableBallButton(BallColour.BROWN);
-                    } else if (colourAfterRed){
+                    } else if (colourAfterRed) {
                         currentBall = BallColour.YELLOW;
                     } else {
                         currentBall = BallColour.RED;
@@ -212,7 +199,7 @@ public class Scoring extends AppCompatActivity {
                     if (pottedReds >= 15 && !colourAfterRed) {
                         currentBall = BallColour.PINK;
                         disableBallButton(BallColour.BLUE);
-                    } else if (colourAfterRed){
+                    } else if (colourAfterRed) {
                         currentBall = BallColour.YELLOW;
                     } else {
                         currentBall = BallColour.RED;
@@ -224,7 +211,7 @@ public class Scoring extends AppCompatActivity {
                     if (pottedReds >= 15 && !colourAfterRed) {
                         currentBall = BallColour.BLACK;
                         disableBallButton(BallColour.PINK);
-                    } else if (colourAfterRed){
+                    } else if (colourAfterRed) {
                         currentBall = BallColour.YELLOW;
                     } else {
                         currentBall = BallColour.RED;
@@ -235,7 +222,7 @@ public class Scoring extends AppCompatActivity {
 
                     if (pottedReds >= 15 && !colourAfterRed) {
                         openResults();
-                    } else if (colourAfterRed){
+                    } else if (colourAfterRed) {
                         currentBall = BallColour.YELLOW;
                     } else {
                         currentBall = BallColour.RED;
@@ -376,19 +363,6 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
-    private enum Player {
-        PLAYER_ONE(0), PLAYER_TWO(1);
-
-        private final int value;
-        Player(int value) {
-            this.value = value;
-        }
-
-        public int getValue() {
-            return value;
-        }
-    }
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -398,5 +372,33 @@ public class Scoring extends AppCompatActivity {
         outState.putInt("currentPlayer", currentPlayer.getValue());
         outState.putInt("currentBall", currentBall.getValue());
         outState.putBoolean("colourAfterRed", colourAfterRed);
+    }
+
+    private enum BallColour {
+        RED(0), YELLOW(1), GREEN(2), BROWN(3), BLUE(4), PINK(5), BLACK(6);
+
+        private final int value;
+
+        BallColour(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
+    private enum Player {
+        PLAYER_ONE(0), PLAYER_TWO(1);
+
+        private final int value;
+
+        Player(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
     }
 }

@@ -13,6 +13,7 @@
         tools:context="me.chrislane.snookerscore.MainMenu">
 
     <ImageView
+            android:contentDescription="@string/title_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
