@@ -77,6 +77,11 @@ public class Results extends AppCompatActivity {
         playerTwoWinsView.setText(String.format(Locale.ENGLISH, "%d", playerTwoWins));
     }
 
+    /**
+     * Start sharing the results
+     *
+     * @param view View calling the method
+     */
     public void onClickShare(View view) {
         String shareText = "%s won %d - %d against %s in a snooker frame";
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -86,6 +91,11 @@ public class Results extends AppCompatActivity {
         startActivity(Intent.createChooser(intent, "Share via"));
     }
 
+    /**
+     * Start a new frame
+     *
+     * @param view View calling the method
+     */
     public void onClickNextFrame(View view) {
         Intent intent = new Intent(this, Scoring.class);
         intent.putExtra("playerOneName", playerOneName);

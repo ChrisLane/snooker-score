@@ -21,6 +21,11 @@ public class Scoring extends AppCompatActivity {
     private String playerOneName;
     private String playerTwoName;
 
+    /**
+     * Register a foul
+     *
+     * @param view View calling the method
+     */
     public void onClickFoul(View view) {
         ImageButton arrow = (ImageButton) findViewById(R.id.arrow);
 
@@ -42,10 +47,21 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
+    /**
+     * Open the results activity
+     *
+     * @param view View calling the method
+     */
     public void onClickEndFrame(View view) {
         openResults();
     }
 
+    /**
+     * Get a ball button by colour
+     *
+     * @param colour Colour of the ball button
+     * @return Ball button of colour
+     */
     private ImageButton getBallButton(BallColour colour) {
         switch (colour) {
             case RED:
@@ -65,6 +81,11 @@ public class Scoring extends AppCompatActivity {
         return (ImageButton) findViewById(R.id.black_ball);
     }
 
+    /**
+     * Disable all ball buttons
+     *
+     * @param exceptRed If the red ball button be disabled
+     */
     private void disableBallButtons(Boolean exceptRed) {
         if (!exceptRed) {
             getBallButton(BallColour.RED).setVisibility(View.INVISIBLE);
@@ -79,6 +100,11 @@ public class Scoring extends AppCompatActivity {
         getBallButton(BallColour.BLACK).setVisibility(View.INVISIBLE);
     }
 
+    /**
+     * Enable all ball buttons
+     *
+     * @param exceptRed If the red ball button should be disabled
+     */
     private void enableBallButtons(Boolean exceptRed) {
         if (!exceptRed) {
             getBallButton(BallColour.RED).setVisibility(View.VISIBLE);
@@ -93,6 +119,11 @@ public class Scoring extends AppCompatActivity {
         getBallButton(BallColour.BLACK).setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Enable a ball button of a certain colour
+     *
+     * @param colour Colour of ball button to enable
+     */
     private void enableBallButton(BallColour colour) {
         switch (colour) {
             case RED:
@@ -121,6 +152,11 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
+    /**
+     * Disable a ball button of a certain colour
+     *
+     * @param colour Colour of a ball button to disable
+     */
     private void disableBallButton(BallColour colour) {
         switch (colour) {
             case RED:
@@ -149,6 +185,11 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
+    /**
+     * Adjust scores and view when a ball button is clicked
+     *
+     * @param view View that called the method
+     */
     public void onClickBall(View view) {
         if (view.getId() == R.id.red_ball || view.getId() == R.id.remaining_red_balls) {
             addScore(currentPlayer, 1);
@@ -253,6 +294,11 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
+    /**
+     * Change the active player
+     *
+     * @param view View calling the method
+     */
     public void changePlayer(View view) {
         ImageButton arrow = (ImageButton) findViewById(R.id.arrow);
 
@@ -279,6 +325,9 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
+    /**
+     * Open the results activity
+     */
     private void openResults() {
         Intent intent = new Intent(this, Results.class);
         Intent pastIntent = getIntent();
@@ -359,6 +408,12 @@ public class Scoring extends AppCompatActivity {
         addScore(Player.PLAYER_TWO, 0);
     }
 
+    /**
+     * Add a score to a player
+     *
+     * @param player Player to add the score to
+     * @param score Score to add to the player's score
+     */
     private void addScore(Player player, int score) {
         switch (player) {
             case PLAYER_ONE:
@@ -382,6 +437,9 @@ public class Scoring extends AppCompatActivity {
         outState.putBoolean("colourAfterRed", colourAfterRed);
     }
 
+    /**
+     * Available ball colours
+     */
     private enum BallColour {
         RED(0), YELLOW(1), GREEN(2), BROWN(3), BLUE(4), PINK(5), BLACK(6);
 
@@ -396,6 +454,9 @@ public class Scoring extends AppCompatActivity {
         }
     }
 
+    /**
+     * Available players
+     */
     private enum Player {
         PLAYER_ONE(0), PLAYER_TWO(1);
 

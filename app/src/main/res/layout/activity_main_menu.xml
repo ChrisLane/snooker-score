@@ -23,7 +23,7 @@
 
     <Button
             android:text="@string/enter_setup"
-            android:onClick="startSetup"
+            android:onClick="onClickEnterSetup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"

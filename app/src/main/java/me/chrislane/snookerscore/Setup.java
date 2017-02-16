@@ -14,7 +14,12 @@ public class Setup extends AppCompatActivity {
         setContentView(R.layout.activity_setup);
     }
 
-    public void startScoring(View view) {
+    /**
+     * Start a new frame
+     *
+     * @param view View Calling the method
+     */
+    public void onClickNewFrame(View view) {
         Intent intent = new Intent(this, Scoring.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 

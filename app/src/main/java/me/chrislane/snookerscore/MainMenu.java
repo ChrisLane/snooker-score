@@ -13,7 +13,12 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
     }
 
-    public void startSetup(View view) {
+    /**
+     * Start the setup activity
+     *
+     * @param view View calling the method
+     */
+    public void onClickEnterSetup(View view) {
         Intent intent = new Intent(this, Setup.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
