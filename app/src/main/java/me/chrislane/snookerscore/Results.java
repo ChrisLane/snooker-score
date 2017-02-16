@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class Results extends AppCompatActivity {
     private String playerOneName;
     private String playerTwoName;
@@ -28,6 +30,12 @@ public class Results extends AppCompatActivity {
 
         playerOneScore = pastIntent.getIntExtra("playerOneScore", 0);
         playerTwoScore = pastIntent.getIntExtra("playerTwoScore", 0);
+
+        TextView playerOneScoreView = (TextView) findViewById(R.id.player_one_score);
+        TextView playerTwoScoreView = (TextView) findViewById(R.id.player_two_score);
+
+        playerOneScoreView.setText(String.format(Locale.ENGLISH, "%d", playerOneScore));
+        playerTwoScoreView.setText(String.format(Locale.ENGLISH, "%d", playerTwoScore));
 
         TextView winningPlayerView = (TextView) findViewById(R.id.winning_player);
 
