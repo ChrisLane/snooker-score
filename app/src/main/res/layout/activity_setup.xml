@@ -19,6 +19,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="115dp"
             android:onClick="startScoring"
+            android:padding="10dp"
+            android:background="@drawable/rounded_button"
             android:id="@+id/continue_button"/>
 
     <EditText
