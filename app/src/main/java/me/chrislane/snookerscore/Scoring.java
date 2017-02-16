@@ -24,12 +24,12 @@ public class Scoring extends AppCompatActivity {
     public void onClickFoul(View view) {
         switch (currentPlayer) {
             case PLAYER_ONE:
-                playerOneScore -= 4;
-                playerOneScoreView.setText(String.format(Locale.ENGLISH, "%d", playerOneScore));
+                playerTwoScore += 4;
+                playerTwoScoreView.setText(String.format(Locale.ENGLISH, "%d", playerTwoScore));
                 break;
             case PLAYER_TWO:
-                playerTwoScore -= 4;
-                playerTwoScoreView.setText(String.format(Locale.ENGLISH, "%d", playerTwoScore));
+                playerOneScore += 4;
+                playerOneScoreView.setText(String.format(Locale.ENGLISH, "%d", playerOneScore));
                 break;
         }
     }
